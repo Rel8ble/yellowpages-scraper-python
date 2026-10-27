@@ -25,6 +25,5 @@ const rows = items
 
 const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
 const header = Object.keys(rows[0] ?? {});
-writeFileSync('yellowpages_leads.csv', [header.join(','), ...rows.map((row) => header.map((h) => esc(row[h])).join(','))].join('
-'));
+writeFileSync('yellowpages_leads.csv', [header.join(','), ...rows.map((row) => header.map((h) => esc(row[h])).join(','))].join('\n'));
 console.log(`${rows.length} rows -> yellowpages_leads.csv`);
